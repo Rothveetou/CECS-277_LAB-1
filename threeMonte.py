@@ -4,8 +4,10 @@ import random
 
 def main():
     amount = 100
+    # use this to random the queen position at range of 1,3
     queen = random.randint(1, 3)
-    cards = ["Q","K","K"]
+    cards = ["K","K","K"]
+    cards[queen - 1] = "Q"
     print("|----------------------------|")
     print("|      THREE CARD MONTE      |")
     print("|----------------------------|")
@@ -35,8 +37,23 @@ def main():
                     if guess == queen:
                         print("You win!")
                         amount += bet
-                    elif guess != queen:
+                    
+                    else:
                         print("Sorry... you lose!")
+
+                        if amount == 0:
+                            print("You are out of money!")
+                            print("Thanks for playing!")
+                            break
+
+                        choice = input("Play again? (Y/N) : ")
+
+                        if choice.lower() == "y":
+                            continue
+
+                        elif choice.lower() == "n":
+                            print("Thanks for playing!")
+                            break
                 else:
                     print("Invalid input - should be within range 1-3")
                     continue
