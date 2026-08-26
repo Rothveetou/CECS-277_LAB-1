@@ -19,7 +19,7 @@ def main():
             bet = int(input("How much you wanna bet? "))
             if bet > 0 and bet <= amount:
                 amount -= bet
-                print("You have $" + str(bet))
+                print("You have $" + str(amount))
                 print("Let's play!")
                 print("+-----+ +-----+ +-----+")
                 print("|     | |     | |     |")
@@ -36,7 +36,7 @@ def main():
                 if guess > 0 and guess <= 3:
                     if guess == queen:
                         print("You win!")
-                        amount += bet
+                        amount += bet * 2
                     
                     else:
                         print("Sorry... you lose!")
